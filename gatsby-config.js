@@ -3,7 +3,7 @@
  */
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://www.yourdomain.tld`,
+    title: "e-trifonova.pro",
   },
   plugins: [
     "gatsby-plugin-image",
