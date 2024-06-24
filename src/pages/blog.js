@@ -2,14 +2,18 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Seo from '../components/seo'
+import {
+    blogList,
+    blogListItem
+} from "../components/layout.module.css";
 
 const BlogPage = ({ data }) => {
   return (
     <Layout pageTitle="My Blog Posts">
-      <ul>
+      <ul className={blogList}>
       {
         data.allFile.nodes.map(node => (
-          <li key={node.name}>
+          <li className={blogListItem} key={node.name}>
             {node.name}
           </li>
         ))
