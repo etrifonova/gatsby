@@ -10,24 +10,29 @@ import {
 const BlogPage = ({ data }) => {
   return (
     <Layout pageTitle="My Blog Posts">
-      <ul className={blogList}>
       {
-        data.allFile.nodes.map(node => (
-          <li className={blogListItem} key={node.name}>
-            {node.name}
-          </li>
+        data.allMdx.nodes.map((node) => (
+          <article key={node.id}>
+            <h2>{node.frontmatter.title}</h2>
+            <p>Posted: {node.frontmatter.date}</p>
+            <p>{node.excerpt}</p>
+          </article>
         ))
       }
-      </ul>
     </Layout>
   )
 }
 
 export const query = graphql`
-  query {
-    allFile {
+   query {
+    allMdx(sort: {frontmatter: {date: DESC}}) {
       nodes {
-        name
+        id
+        frontmatter {
+          date(formatString: "MMMM D, YYYY")
+          title
+        }
+        excerpt
       }
     }
   }
