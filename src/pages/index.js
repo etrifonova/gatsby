@@ -7,8 +7,8 @@ const IndexPage = () => {
   return (
       
     <Layout pageTitle="Home Page">
-      <h1>Welcome to my Gatsby site!</h1>
-      <p>I'm making this by following the Gatsby Tutorial.</p>
+      <h1>A website about my favorite musicians</h1>
+      <p>This website was originally made thanks to the Gatsby Tutorial and then modified by me.</p>
       
       <StaticImage
         alt="a drum kit with drumsticks"
