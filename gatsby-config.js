@@ -2,6 +2,8 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  
+  pathPrefix: "/gatsby/public",
   siteMetadata: {
     title: "musicians",
   },
