@@ -3,7 +3,7 @@
  */
 module.exports = {
   
-  pathPrefix: "/gatsby/public",
+  pathPrefix: "/gatsby",
   siteMetadata: {
     title: "musicians",
   },
