@@ -2,6 +2,9 @@ import * as React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 import Seo from '../../components/seo'
+import {
+  indexText
+} from "./blog.module.css";
 
 const BlogPage = ({ data }) => {
   return (
@@ -14,7 +17,7 @@ const BlogPage = ({ data }) => {
                 {node.frontmatter.title}</Link>
             </h2>
             <p>Posted: {node.frontmatter.date}</p>
-            <p>{node.excerpt}</p>
+            <p className={indexText}>{node.excerpt}</p>
           </article>
         ))
       }
