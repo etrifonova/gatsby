@@ -3,11 +3,17 @@
  */
 module.exports = {
   
-  pathPrefix: "/gatsby",
-  siteMetadata: {
+    siteMetadata: {
     title: "musicians",
   },
   plugins: [
+    
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url: `https://e-trifonova.pro/graphql`,
+      },
+    },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     {
