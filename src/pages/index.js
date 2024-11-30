@@ -6,13 +6,22 @@ import {
   image,
   indexText
 } from "./page.module.css";
+import { useLatestPost } from '../hooks/useLatestPost';
+import { useMediaItems } from '../hooks/useMediaItems';
 
 const IndexPage = () => {
+  const post = useLatestPost();
+  const media = useMediaItems();
   return (
       
     <Layout pageTitle="Home Page">
       <h1>A website about my favorite musicians</h1>
       <p className={indexText}>This website was originally made thanks to the Gatsby Tutorial and then modified by me.</p>
+
+      <div>
+        <h2>{post.wpPost.title}</h2>
+        {post.wpPost.excerpt}
+      </div>
       
       <StaticImage
       className={image}
