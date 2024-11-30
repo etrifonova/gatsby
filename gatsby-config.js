@@ -11,7 +11,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: `https://e-trifonova.pro/graphql`,
+        url: `http://gatsbywp2.local/graphql`,
       },
     },
     "gatsby-plugin-image",
