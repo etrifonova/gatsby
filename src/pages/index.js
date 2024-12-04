@@ -1,37 +1,69 @@
-import * as React from 'react'
-import Layout from '../components/Layout'
-import { StaticImage } from 'gatsby-plugin-image'
-import Seo from '../components/seo'
-import {
-  image,
-  indexText
-} from "./page.module.css";
-import { useLatestPost } from '../hooks/useLatestPost';
-import { useMediaItems } from '../hooks/useMediaItems';
+import * as React from "react"
+import { Link, graphql } from "gatsby"
+import Layout from "../components/layout/layout"
+import Seo from "../components/seo"
+import Hero from "../components/hero/hero"
 
-const IndexPage = () => {
-  const post = useLatestPost();
-  const media = useMediaItems();
+export default function Home({ data }) {
+  const posts = data.allWpPost.nodes
+
+  // Function to limit excerpt length and add link
+  const getLimitedExcerpt = (htmlString, charLimit, slug) => {
+    // Remove HTML tags
+    const textOnly = htmlString.replace(/<[^>]+>/g, "")
+    // Truncate to specified length and add link if truncated
+    if (textOnly.length > charLimit) {
+      return (
+        <>
+          {textOnly.substring(0, charLimit)}
+          <Link to={`/blog/${slug}`} className="read-more">
+            {" "}
+            [...]
+          </Link>
+        </>
+      )
+    }
+    return textOnly
+  }
+
   return (
-      
-    <Layout pageTitle="Home Page">
-      <h1>A website about my favorite musicians</h1>
-      <p className={indexText}>This website was originally made thanks to the Gatsby Tutorial and then modified by me.</p>
+    <Layout>
+      <Seo title="home" />
+      <Hero />
+      <div className="latestBlogPosts_container">
+        <h1>Блог</h1>
+        <div className="latestBlogPosts__posts">
+          {posts.slice(0, 3).map((post, index) => (
+            <div key={index}>
+              <h4>{post.title}</h4>
 
-      <div>
-        <h2>{post.wpPost.title}</h2>
-        {post.wpPost.excerpt}
+              <p>{getLimitedExcerpt(post.excerpt, 200, post.slug)}</p>
+              <Link to={`/blog/${post.slug}`}>
+                <p>Читать</p>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
-      
-      <StaticImage
-      className={image}
-        alt="a drum kit with drumsticks"
-        src="../assets/images/drums.png"
-      />
     </Layout>
   )
 }
 
-export const Head = () => <Seo title="Home Page" />
-
-export default IndexPage
+export const pageQuery = graphql`
+  query blogPostsQuery {
+    allWpPost(sort: { date: DESC }) {
+      nodes {
+        title
+        excerpt
+        content
+        slug
+        categories {
+          nodes {
+            name
+            id
+          }
+        }
+      }
+    }
+  }
+`

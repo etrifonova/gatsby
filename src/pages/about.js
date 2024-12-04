@@ -1,17 +1,37 @@
-import * as React from 'react'
-import Layout from '../components/Layout'
-import Seo from '../components/seo'
-import {
-  indexText
-} from "./page.module.css";
+import * as React from "react"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Layout from "../components/layout/layout"
+import Seo from "../components/seo"
+import About from "../components/about/about"
 
-const AboutPage = () => {
+export default function Home() {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+      file(relativePath: { eq: "about.jpg" }) {
+        childImageSharp {
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+            quality: 80
+            formats: [AUTO, WEBP, AVIF]
+          )
+        }
+      }
+    }
+  `)
+
+  const heroImage = getImage(data.file.childImageSharp.gatsbyImageData)
   return (
-    <Layout pageTitle="About Me">
-      <p className={indexText}>Hi there! I'm the proud creator of this site, which I built with Gatsby. Still far from being an expert in it, but feeling rather enthusiastic about the whole thing</p>
+    <Layout>
+      <Seo title="about" />
+      <About />
+
     </Layout>
   )
 }
-export const Head = () => <Seo title="About Page" />
-
-export default AboutPage
