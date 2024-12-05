@@ -1,11 +1,14 @@
 import React from "react"
 import Layout from "../components/layout/layout"
+import DOMPurify from "dompurify";
 import { graphql } from "gatsby"
 import BreadCrumb from "../components/breadcrumb/breadcrumb"
 
 export default function BlogPost({ data }) {
-  const post = data.allWpPost.nodes[0]
-  const category = post.categories.nodes[0]
+  const post = data.allWpPost.nodes[0];
+  const category = post.categories.nodes[0];
+  const postContent = post.content;
+  const sanitizedHtmlContent = DOMPurify.sanitize(postContent);
   return (
     <Layout>
       <section className="blog__post">
@@ -21,7 +24,7 @@ export default function BlogPost({ data }) {
         >
           Категория: {category.name}
         </span>
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        <div dangerouslySetInnerHTML={{ __html: sanitizedHtmlContent }} />
       </section>
     </Layout>
   )

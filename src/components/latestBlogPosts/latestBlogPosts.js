@@ -1,9 +1,13 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
+import DOMPurify from "dompurify";
 import "./latestBlogPosts.css"
 
 const LatestBlogPosts = () => {
   const data = useLatestBlogPost()
+  const postExcerpt = post.node.excerpt;
+  const sanitizedHtmlContent = DOMPurify.sanitize(postExcerpt);
+
   return (
     <div className="latestBlogPosts_container">
       <h1>Блог</h1>
@@ -13,7 +17,7 @@ const LatestBlogPosts = () => {
             <h4>{post.node.title}</h4>
             <div
               dangerouslySetInnerHTML={{
-                __html: post.node.excerpt,
+                __html: sanitizedHtmlContent,
               }}
             />
             {console.log(post.node.uri)}

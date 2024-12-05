@@ -1,6 +1,5 @@
 import * as React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
 import About from "../components/about/about"
@@ -26,7 +25,6 @@ export default function Home() {
     }
   `)
 
-  const heroImage = getImage(data.file.childImageSharp.gatsbyImageData)
   return (
     <Layout>
       <Seo title="about" />

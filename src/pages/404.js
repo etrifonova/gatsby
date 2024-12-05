@@ -26,9 +26,9 @@ const codeStyles = {
 const NotFoundPage = () => {
   return (
     <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
+      <h1 style={headingStyles}>Страница не найдена</h1>
       <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
+        К сожалению, мы не нашли страницу, которую вы искали 😔.
         <br />
         {process.env.NODE_ENV === "development" ? (
           <>
@@ -38,7 +38,7 @@ const NotFoundPage = () => {
           </>
         ) : null}
         <br />
-        <Link to="/">Go home</Link>.
+        <Link to="/">На главную</Link>
       </p>
     </main>
   )

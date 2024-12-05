@@ -24,9 +24,6 @@ const CertOne = ({ icon, title, bullet1 }) => {
       </div>
       <div className="website__cert1-container__service-text">
         <p>{bullet1}</p>
-        {/* <ul>
-          <li>{bullet1}</li>
-        </ul> */}
       </div>
     </div>
   );
