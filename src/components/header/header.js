@@ -12,13 +12,15 @@ const Header = ({ siteTitle }) => (
       <nav>
         <ul className="nav__list">
           <li className="nav__list-item">
-            <Link className="nav__link" to="/about">
-              About
+            <Link className="nav__link" to="/about"
+            activeClassName="active">
+              Автор
             </Link>
           </li>
           <li>
-            <Link className="nav__link" to="/blog">
-              Blog
+            <Link className="nav__link" to="/blog"
+            activeClassName="active">
+              Блог
             </Link>
           </li>
         </ul>

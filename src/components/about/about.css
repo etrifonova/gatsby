@@ -89,6 +89,12 @@
 }
 
 @media (max-width: 700px) {
+
+  .about__facts {
+      display: flex;
+      flex-direction: column;
+    }
+
   .about__certificates-heading h2 {
     font-size: 1.75rem;
   }

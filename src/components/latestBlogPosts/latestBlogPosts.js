@@ -6,7 +6,13 @@ import "./latestBlogPosts.css"
 const LatestBlogPosts = () => {
   const data = useLatestBlogPost()
   const postExcerpt = post.node.excerpt;
-  const sanitizedHtmlContent = DOMPurify.sanitize(postExcerpt);
+  let DOMPurify;
+  
+  if (typeof window !== "undefined") {
+    DOMPurify = require("dompurify");
+  }
+
+  const sanitizedHtmlContent = DOMPurify?.sanitize(postExcerpt);
 
   return (
     <div className="latestBlogPosts_container">

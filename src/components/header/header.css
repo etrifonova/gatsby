@@ -17,9 +17,36 @@ header {
 
 .nav__link {
   font-family: var(--font-family);
+  color: var(--white);
   font-size: 1.25rem;
   text-decoration: none;
+  padding: 0 10px;
+  border-radius: 3px;
+}
+
+.nav__link:hover {
+  font-weight: bold;
+  color: var(--color-dark-bg);
+  background-color: var(--light-gray);
+}
+
+.nav__link:focus {
+  font-weight: bold;
+  color: var(--color-dark-bg);
+  background-color: var(--light-gray);
+}
+
+.nav__link:active {
+  font-weight: bold;
+  color: var(--color-dark-bg);
+  background-color: var(--light-gray);
+}
+
+.nav__link.active {
+  font-weight: bold;
   color: var(--white);
+  background-color: rgba(var(--light-gray-rgb), 0.25);
+
 }
 
 .nav__list {

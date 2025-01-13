@@ -45,6 +45,7 @@
   --dark-gray: #536878;
   --dark-gray-rgb: 83, 104, 120;
   --light-gray: #f6f6f6;
+  --light-gray-rgb: 246, 246, 246;
   --white: #ffffff;
 }
 
@@ -75,13 +76,6 @@ a {
   text-underline-offset: 2px;
   font-size: 1.25rem;
   text-decoration: none;
-}
-
-a:active,
-a:hover {
-  outline-width: 0;
-  text-decoration: none;
-  color: var(--dark-gray);
 }
 
 abbr[title] {
@@ -325,7 +319,7 @@ main {
 font-size: 1.75rem;
 }
 
-.latestBlogPosts_container {
+.latestBlogPosts_container, .error {
   margin-top: 5rem;
   grid-column: 2 / -2;
 }
@@ -348,6 +342,13 @@ font-size: 1.75rem;
   font-size: 1rem;
 }
 
+@media (max-width: 900px) {
+  .latestBlogPosts__posts {
+    display: flex;
+    flex-direction: column;
+  }
+
+}
 /* BUTTONS - GENERAL */
 
 button {
