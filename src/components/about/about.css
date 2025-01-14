@@ -79,6 +79,21 @@
 }
 
 @media (max-width: 900px) {
+  .about__facts {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .about__facts-image {
+    margin: 0;
+  }
+
+  .about__facts-image img {
+    padding: 3rem;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+  }
   .about__certificates-lang {
     grid-template-columns: 1fr;
   }
@@ -89,12 +104,6 @@
 }
 
 @media (max-width: 700px) {
-
-  .about__facts {
-      display: flex;
-      flex-direction: column;
-    }
-
   .about__certificates-heading h2 {
     font-size: 1.75rem;
   }

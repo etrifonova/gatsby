@@ -90,7 +90,7 @@ const prevPage = () => {
           </button>
         </li>
       ))}
-      <button className="category_btn" onClick={resetFilter}>Сбросить фильтр</button>
+      <button className="category_btn filter_btn" onClick={resetFilter}>Сбросить фильтр</button>
     </ul>
   );
 
