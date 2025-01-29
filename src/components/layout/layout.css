@@ -187,10 +187,6 @@ th {
   font-weight: bold;
 }
 
-li {
-  margin-bottom: calc(var(--space-4) / 2);
-}
-
 ol li,
 ul li {
   padding-left: 0;
@@ -219,7 +215,8 @@ li > p {
   margin-bottom: calc(var(--space-4) / 2);
 }
 
-p {font-size: 1.15rem;
+p {
+  font-size: 1.15rem;
 }
 
 code {
@@ -300,37 +297,58 @@ main {
   margin: 5rem 0 7rem 0;
   grid-column: 3 / -3;
   display: grid;
-  /* grid-gap: 1rem; */
   grid-template-areas:
     "a a a a"
     "b c c c";
 }
 
-.blog_posts {
+.blog__posts {
   grid-area: c;
 }
 
 .blog__post {
   margin: 5rem 0;
-  grid-column: 4 / -4;
+  grid-column: 3 / -3;
 }
 
 .blog__post h1 {
-font-size: 1.75rem;
+  font-size: 1.75rem;
+}
+
+.blog__post-excerpt {
+  font-size: 1rem;
+  line-height: 1.75rem;
 }
 
 @media (max-width: 900px) {
-  
   .blog {
-      /* margin: 5rem 0 7rem 0; */
-      grid-column: 2 / -2;
-      display: flex;
-      flex-direction: column;
-    }
+    margin: 2rem 0 3rem 0;
+    grid-column: 2 / -2;
+    display: flex;
+    flex-direction: column;
+  }
 
+  .blog__post {
+    margin: 2rem 0;
+    grid-column: 2 / -2;
+  }
+
+  .blog__post-excerpt {
+    font-size: 0.9rem;
+  }
+
+  .blog__post-title {
+    margin-top: 3rem;
+  }
+
+  .blog__post-text p {
+    font-size: 0.95rem;
+    line-height: 1.75rem;
+  }
 }
 
-.latestBlogPosts_container, .error {
+.latestBlogPosts_container,
+.error {
   margin-top: 5rem;
   grid-column: 2 / -2;
 }
@@ -358,19 +376,17 @@ ul {
 }
 
 .ul-item {
-  /* margin-left: 2rem; */
   font-size: 1.15rem;
   display: grid;
-  grid-template-columns: 1fr 11fr;
-
+  grid-template-columns: 1fr 17fr;
 }
 
 .ul-item::before {
   content: "✤";
   color: var(--color-blog);
   display: block;
-  width: 2rem;
   align-self: center;
+  padding: 0;
 }
 
 @media (max-width: 900px) {
@@ -379,6 +395,9 @@ ul {
     flex-direction: column;
   }
 
+    .ul-item {
+      font-size: 0.9rem;
+    }
 }
 /* BUTTONS - GENERAL */
 
@@ -399,18 +418,18 @@ button {
 }
 
 .category_list > li {
-  margin-left: -1rem;
   padding: 0;
+  margin-bottom: 0.5rem;
 }
 
 .category_btn {
+  margin-left: -0.4rem;
   color: var(--dark-gray);
-  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
 }
 
 .filter_btn {
-  margin-left: -1rem;
-
+  color: var(--color-dark-bg);
 }
 
 .category_btn:hover {
@@ -420,6 +439,12 @@ button {
 button.active {
   color: var(--color-blog);
   font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  .category_btn {
+    font-size: 0.8rem;
+  }
 }
 
 .post_category {

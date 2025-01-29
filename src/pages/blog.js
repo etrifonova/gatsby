@@ -116,7 +116,7 @@ const prevPage = () => {
       <section className="blog">
         <BreadCrumb className="blog__breadcrumb" />
         <Sidebar className="blog_sidebar" category={category} />
-        <div className="blog_posts">
+        <div className="blog__posts">
           <h1>Блог</h1>
           <h4>{selectedCategory ? `Посты в категории "${selectedCategory}"` : 'Все посты'}</h4>
 
@@ -126,7 +126,7 @@ const prevPage = () => {
                 <p>{post.title}</p>
               </Link>
               <p className="post_category" >Категория: {post.categories.nodes.map(category => category.name).join(", ")}</p>
-              <p>{getLimitedExcerpt(post.excerpt, 200, post.slug)}</p>
+              <p className="blog__post-excerpt">{getLimitedExcerpt(post.excerpt, 200, post.slug)}</p>
             </div>
           )) : <p className="post_category">Постов не найдено.</p>}
 

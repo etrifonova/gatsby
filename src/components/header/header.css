@@ -2,6 +2,7 @@ header {
   background-color: #031b34;
 }
 
+/* Header Container */
 .header__container {
   grid-column: 2 / -2;
   flex-shrink: 0;
@@ -9,12 +10,31 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
+
+/* Burger Menu Button */
+.burger-menu {
+  color: white;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+  /* Hidden on larger screens */
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+}
+
 
 .header__logo-img {
-  width: 75%;
+  width: 10rem;
 }
 
+/* Navigation Links */
 .nav__link {
   font-family: var(--font-family);
   color: var(--white);
@@ -24,31 +44,23 @@ header {
   border-radius: 3px;
 }
 
-.nav__link:hover {
-  font-weight: bold;
-  color: var(--color-dark-bg);
-  background-color: var(--light-gray);
-}
-
-.nav__link:focus {
-  font-weight: bold;
-  color: var(--color-dark-bg);
-  background-color: var(--light-gray);
-}
-
+.nav__link:hover,
+.nav__link:focus,
 .nav__link:active {
   font-weight: bold;
   color: var(--color-dark-bg);
   background-color: var(--light-gray);
 }
 
+/* Active Link Styling */
 .nav__link.active {
   font-weight: bold;
   color: var(--white);
-  background-color: rgba(var(--light-gray-rgb), 0.25);
-
+  background-color: rgba(255, 255, 255, 0.25);
+  /* Replaced variable */
 }
 
+/* Navigation List */
 .nav__list {
   display: flex;
   justify-content: space-between;
@@ -57,7 +69,8 @@ header {
   list-style: none;
 }
 
-.nav_list li {
+/* Corrected Class Name */
+.nav__list li {
   display: flex;
   align-items: center;
   margin: 0;
@@ -67,12 +80,92 @@ header {
   margin-right: 4rem;
 }
 
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+  .header__container {
+    /* flex-wrap: wrap; */
+  }
+
+  .nav__link {
+    font-size: 1.1rem;
+  }
+}
+
 @media (max-width: 600px) {
   .nav__link {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .header__logo-img {
     width: 50%;
+  }
+}
+
+/* Mobile Menu - Hidden by Default */
+@media (max-width: 768px) {
+  .burger-menu {
+    display: block;
+    /* Show burger button on mobile */
+  }
+
+  .nav {
+    position: absolute;
+    top: 5rem;
+    right: -2rem;
+    background: lightslategray;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    border-radius: 4px;
+    width: 200px;
+    display: none;
+    /* Ensure it's hidden initially */
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  .nav--open {
+    display: flex;
+    /* Show menu when open */
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav__list {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    /* Ensures the menu items are centered */
+  }
+
+  .nav__list-item {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    transition: background 0.3s ease-in-out;
+  }
+
+    .nav__list-item:not(:last-child) {
+      margin-right: 0;
+    }
+
+  .nav__list-item:last-child {
+    border-bottom: none;
+  }
+
+  .nav__list-item:hover {
+    background: #f0f0f0;
+  }
+
+  .nav__link {
+    text-decoration: none;
+    color: black;
+    display: block;
+    width: 100%;
   }
 }

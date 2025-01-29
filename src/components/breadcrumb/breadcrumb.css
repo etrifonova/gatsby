@@ -6,12 +6,13 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
   margin-bottom: 3rem;
 }
 
 .breadcrumb_link {
   color: var(--dark-gray);
-  font-size: 1rem;
+  font-size: 0.75rem;
 }
 
 .breadcrumb_chevron {
@@ -34,4 +35,11 @@
 .right {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+  
+  .breadcrumb_container {
+      margin-bottom: 1rem;
+    }
 }

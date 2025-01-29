@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/layout/layout";
-import DOMPurify from "dompurify";
+// import DOMPurify from "dompurify";
 import { graphql } from "gatsby";
 import BreadCrumb from "../components/breadcrumb/breadcrumb";
 
@@ -19,7 +19,7 @@ export default function BlogPost({ data }) {
     <Layout>
       <section className="blog__post">
         <BreadCrumb category={category.name} postTitle={post.title} />
-        <h1>{post.title}</h1>
+        <h1 className="blog__post-title">{post.title}</h1>
         <span
           style={{
             display: `block`,
@@ -30,7 +30,7 @@ export default function BlogPost({ data }) {
         >
           Категория: {category.name}
         </span>
-        <div dangerouslySetInnerHTML={{ __html: sanitizedHtmlContent }} />
+        <div className="blog__post-text" dangerouslySetInnerHTML={{ __html: sanitizedHtmlContent }} />
       </section>
     </Layout>
   );
