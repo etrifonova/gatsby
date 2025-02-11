@@ -35,6 +35,11 @@ const Header = () => {
                 Блог
               </Link>
             </li>
+            <li className="nav__list-item">
+              <Link className="nav__link" to="/verbsExerciser" activeClassName="active">
+                Глаголы
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

@@ -484,3 +484,8 @@ button.active {
   justify-content: center;
   align-items: center;
 }
+
+/* VERBS EXERCISER */
+.verbs-practice {
+  grid-column: 2 / -2;
+}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
@@ -109,6 +109,8 @@ const prevPage = () => {
     }
     return textOnly;
   };
+
+  console.log(posts)
 
   return (
     <Layout>

@@ -7,14 +7,14 @@ const BreadCrumb = ({ category, postTitle }) => (
     <Link className="breadcrumb_link"to="/">
       <span>На главную</span>
     </Link>
-    <div className="arrow__container"><i class="arrow right"></i></div>
+    <div className="arrow__container"><i className="arrow right"></i></div>
     <Link className="breadcrumb_link" to="/blog">
       <span>Блог</span>
     </Link>
     
     {category ? (
       <>
-    <div className="arrow__container"><i class="arrow right"></i></div>
+    <div className="arrow__container"><i className="arrow right"></i></div>
         <Link className="breadcrumb_link" to="/">
       <span>{category}</span>
         </Link>
@@ -24,7 +24,7 @@ const BreadCrumb = ({ category, postTitle }) => (
     
     {postTitle ? (
       <>
-    <div className="arrow__container"><i class="arrow right"></i></div>
+    <div className="arrow__container"><i className="arrow right"></i></div>
         <Link className="breadcrumb_link" to="/">
       <span>{postTitle}</span>
         </Link>
