@@ -1,69 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 
 :root {
-  --border-radius: 4px;
-  --color-text: #333;
-  --color-primary: #7026b9;
-  --color-code-bg: #fff4db;
-  --color-code: #8a6534;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
-  --font-lg: 18px;
-  --font-md: 16px;
-  --font-sm: 14px;
-  --font-sx: 12px;
-  --line-height-loose: 1.75;
-  --line-height-normal: 1.5;
-  --line-height-dense: 1.1;
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 16px;
-  --space-4: 24px;
-  --space-5: 32px;
-  --space-6: 64px;
-  --size-content: 54rem;
-  --size-gutter: var(--space-5);
-  --size-gap: var(--space-6);
-  /* из моего проекта */
   --font-family: "Manrope", sans-serif;
-  --card-color: #f6f6f6;
-
-  --color-bg: #040c18;
-  --color-dark-bg: #031b34;
-  --color-icon: #4e4e55;
-  --color-blog: #042c54;
-  --color-blog-rgb: 4, 44, 84;
-  --color-subtext: #ff8a71;
-  --color-button: #04aa6d;
-
-  --text-dark: #161925;
-  --text-light: #faf9f6;
-  --green: #08ac6c;
-  --green-rgb: 8, 172, 108;
-  --dark-gray: #536878;
-  --dark-gray-rgb: 83, 104, 120;
-  --light-gray: #f6f6f6;
-  --light-gray-rgb: 246, 246, 246;
-  --white: #ffffff;
+  --color-main: #282a35;
 }
 
 html {
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
   font: sans-serif;
-  font-size: var(--font-md);
-  line-height: var(--line-height-normal);
   overflow-y: scroll;
 }
 
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  color: var(--color-text);
+  color: #282a35;
   font-family: "Manrope", sans-serif;
-  /* font-family: var(--font-sans); */
   font-weight: normal;
   margin: 0;
   word-wrap: break-word;
@@ -71,16 +24,10 @@ body {
 
 a {
   background-color: transparent;
-  color: var(--color-blog);
+  color: black;
   font-weight: 600;
   text-underline-offset: 2px;
   font-size: 1.25rem;
-  text-decoration: none;
-}
-
-abbr[title] {
-  border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
-  cursor: help;
   text-decoration: none;
 }
 
@@ -88,10 +35,6 @@ b,
 strong {
   font-weight: inherit;
   font-weight: bolder;
-}
-
-dfn {
-  font-style: italic;
 }
 
 h1 {
@@ -102,22 +45,9 @@ h1 {
   letter-spacing: -0.01em;
 }
 
-h1 > b {
-  color: var(--color-primary);
-}
-
 img {
   border-style: none;
   max-width: 100%;
-}
-
-code,
-kbd,
-pre,
-samp {
-  font-family: var(--font-mono);
-  font-size: 1em;
-  line-height: inherit;
 }
 
 hr {
@@ -145,60 +75,6 @@ hr {
   box-sizing: inherit;
 }
 
-hgroup,
-img,
-figure,
-fieldset,
-ul,
-ol,
-dl,
-dd,
-p {
-  margin: 0;
-  padding: 0;
-  margin-bottom: var(--space-4);
-}
-
-/* ul, */
-/* ol {
-  margin-left: var(--space-4);
-  list-style-position: outside;
-  list-style-image: none;
-} */
-
-pre {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  margin-bottom: var(--space-4);
-  font-size: 0.875rem;
-  line-height: var(--line-height-normal);
-  background: hsla(0, 90%, 49%, 0.04);
-  border-radius: var(--border-radius);
-  overflow: auto;
-  word-wrap: normal;
-  padding: var(--space-4);
-}
-
-b,
-strong,
-dt,
-th {
-  font-weight: bold;
-}
-
-ol li,
-ul li {
-  padding-left: 0;
-}
-
-/* li > ol,
-li > ul {
-  margin-bottom: calc(var(--space-4) / 2);
-  margin-left: var(--space-4);
-  margin-top: calc(var(--space-4) / 2);
-} */
-
 blockquote *:last-child {
   margin-bottom: 0;
 }
@@ -211,64 +87,9 @@ p *:last-child {
   margin-bottom: 0;
 }
 
-li > p {
-  margin-bottom: calc(var(--space-4) / 2);
-}
-
 p {
-  font-size: 1.15rem;
-}
-
-code {
-  font-size: 0.875rem;
-}
-
-kbd {
-  font-size: 0.875rem;
-}
-
-samp {
-  font-size: 0.875rem;
-}
-
-abbr {
-  border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
-  cursor: help;
-}
-
-acronym {
-  border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
-  cursor: help;
-}
-
-tt,
-code {
-  background-color: var(--color-code-bg);
-  border-radius: var(--border-radius);
-  color: var(--color-code);
-  font-family: var(--font-mono);
-  padding-bottom: 0.25em;
-  padding-top: 0.25em;
-  word-break: normal;
-}
-
-pre code {
-  background: none;
-}
-
-code:before,
-code:after,
-tt:before,
-tt:after {
-  content: "\00a0";
-  letter-spacing: -0.2em;
-}
-
-pre code:before,
-pre code:after,
-pre tt:before,
-pre tt:after {
-  content: none;
+  font-size: 1.05rem;
+  line-height: 1.75rem;
 }
 
 /* мои стили */
@@ -377,6 +198,7 @@ ul {
 
 .ul-item {
   font-size: 1.15rem;
+  margin-bottom: 1rem;
   display: grid;
   grid-template-columns: 1fr 17fr;
 }
@@ -395,9 +217,9 @@ ul {
     flex-direction: column;
   }
 
-    .ul-item {
-      font-size: 0.9rem;
-    }
+  .ul-item {
+    font-size: 0.9rem;
+  }
 }
 /* BUTTONS - GENERAL */
 
@@ -488,4 +310,68 @@ button.active {
 /* VERBS EXERCISER */
 .verbs-practice {
   grid-column: 2 / -2;
+}
+
+.verbs__radio-group-title {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.verbs__radio-group {
+  margin-bottom: 15px;
+}
+
+.verbs__radio-label {
+  display: inline-block;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.verbs__radio-label input {
+  margin-right: 5px;
+}
+
+.verbs__verbs-area {
+  display: flex;
+}
+
+input {
+  /* border-bottom: 1px solid var(--color-main); */
+  outline: none;
+}
+
+.verbs__verbs-area_infinitive {
+  min-width: 15rem;
+}
+
+.verbs__forms-area {
+  width: 100%;
+  display: grid;
+  column-gap: 4rem;
+  grid-template-areas:
+    "a b c d"
+    "e f g h";
+}
+
+.generate {
+  grid-area: a;
+}
+
+.verbs__forms-area_item:nth-child(2) {
+  grid-area: b;
+}
+.verbs__forms-area_item:nth-child(3) {
+  grid-area: c;
+}
+.verbs__forms-area_item:nth-child(4) {
+  grid-area: d;
+}
+.verbs__random {
+  grid-area: f;
+}
+.psimple {
+  grid-area: g;
+}
+.pparticiple {
+  grid-area: h;
 }

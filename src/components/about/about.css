@@ -1,9 +1,9 @@
 .about {
-  margin-top: 4rem;
-  grid-column: 3 / -3;
+  margin-top: 2rem;
+  grid-column: 4 / -4;
 }
 
-.about__facts {
+/* .about__facts {
   display: grid;
   grid-template-columns: 1fr 4fr;
 }
@@ -16,7 +16,7 @@
   border-radius: 50%;
   width: 75%;
   height: 75%;
-}
+} */
 
 .about__facts-text h3 {
   margin-top: 0;
@@ -24,22 +24,13 @@
 }
 
 .about ul {
-  list-style: none;
+  list-style: circle;
 }
 
 .about ul li {
   line-height: 1.75rem;
-  font-size: 1.15rem;
-    display: grid;
-    grid-template-columns: 1fr 15fr;
-}
-
-.about ul li::before {
-  content: "✤";
-  color: var(--color-blog);
-  display: block;
-  align-self: center;
-  padding-right: 1em;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
 }
 
 .about__certificates {

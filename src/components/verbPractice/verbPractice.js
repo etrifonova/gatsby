@@ -12,7 +12,8 @@ const VerbPractice = () => {
   const [showAnswer, setShowAnswer] = useState("");
   const [selectedValue, setSelectedValue] = useState("");
 
-  const handleSelectChange = (event) => {
+  //  RADIO BUTTONS
+  const handleRadioChange = (event) => {
     const selectedValue = event.target.value;
     setSelectedValue(selectedValue);
     switch (selectedValue) {
@@ -102,42 +103,58 @@ const VerbPractice = () => {
 
   return (
     <div className="verbs__container">
-      <div>
-        Выберите список глаголов:{" "}
-        <span className="verbs__selected">{getDisplayText(selectedValue)}</span>
-      </div>
-      <select onChange={handleSelectChange}>
-        <option className="verbs__option" value="">
-          -- Выберите --
-        </option>
-        <option className="verbs__option" value="part1">
+      <div className="verbs__radio-group">
+        <div className="verbs__radio-group-title">
+          Выберите список глаголов:
+        </div>
+        <label className="verbs__radio-label">
+          <input
+            type="radio"
+            name="verbLevel"
+            value="part1"
+            checked={selectedValue === "part1"}
+            onChange={handleRadioChange}
+          />
           базовый
-        </option>
-        <option className="verbs__option" value="part2">
+        </label>
+        <label className="verbs__radio-label">
+          <input
+            type="radio"
+            name="verbLevel"
+            value="part2"
+            checked={selectedValue === "part2"}
+            onChange={handleRadioChange}
+          />
           продвинутый
-        </option>
-      </select>
-      <div>Осталось глаголов: {verbs.length}</div>
-      <div>
-        Инфинитив: <span className="verbs__random">{randomInfinitive}</span>
+        </label>
       </div>
-      <button className="button" onClick={generateRandomVerb}>
-        Generate
-      </button>
-      <input
-        className="verbs__input"
-        type="text"
-        value={userInput}
-        onChange={(e) => setUserInput(e.target.value)}
-        placeholder="past simple"
-      />
-      <input
-        className="verbs__input"
-        type="text"
-        value={userInput2}
-        onChange={(e) => setUserInput2(e.target.value)}
-        placeholder="past participle"
-      />
+
+      <p>Осталось глаголов: {verbs.length}</p>
+
+      <div className="verbs__forms-area">
+        <button className="button generate" onClick={generateRandomVerb}>
+          Generate
+        </button>
+        <div className="verbs__forms-area_item">Infinitive</div>
+        <div className="verbs__forms-area_item">Past Simple</div>
+        <div className="verbs__forms-area_item">Past Participle</div>
+        <div className="verbs__random">{randomInfinitive}</div>
+
+        <input
+          className="verbs__input psimple"
+          type="text"
+          value={userInput}
+          onChange={(e) => setUserInput(e.target.value)}
+        />
+
+        <input
+          className="verbs__input pparticiple"
+          type="text"
+          value={userInput2}
+          onChange={(e) => setUserInput2(e.target.value)}
+        />
+      </div>
+
       <div className="verbs__message">
         <button className="button" onClick={checkAnswer}>
           Check

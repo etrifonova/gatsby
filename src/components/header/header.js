@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import Logo from "../../assets/svg/logo.svg";
+import Logo from "../../assets/svg/logo_gray.svg";
 import "./header.css";
 
 const Header = () => {
@@ -15,28 +15,46 @@ const Header = () => {
 
         {/* Burger Menu Button */}
         <button
-          className="burger-menu"
+          className={`burger-menu ${isOpen ? "burger-menu--open" : ""}`}
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle navigation"
+          aria-expanded={isOpen}
         >
-          ☰
+          <span className="burger-menu__line"></span>
+          <span className="burger-menu__line"></span>
+          <span className="burger-menu__line"></span>
         </button>
 
         {/* Navigation */}
         <nav className={`nav ${isOpen ? "nav--open" : ""}`}>
-          <ul className="nav__list">
+          <ul className="nav__list menu-items">
             <li className="nav__list-item">
-              <Link className="nav__link" to="/about" activeClassName="active">
+              <Link
+                className="nav__link"
+                to="/about"
+                activeClassName="active"
+                onClick={() => setIsOpen(false)}
+              >
                 Автор
               </Link>
             </li>
             <li className="nav__list-item">
-              <Link className="nav__link" to="/blog" activeClassName="active">
+              <Link
+                className="nav__link"
+                to="/blog"
+                activeClassName="active"
+                onClick={() => setIsOpen(false)}
+              >
                 Блог
               </Link>
             </li>
             <li className="nav__list-item">
-              <Link className="nav__link" to="/verbsExerciser" activeClassName="active">
+              <Link
+                className="nav__link"
+                to="/verbsExerciser"
+                activeClassName="active"
+                onClick={() => setIsOpen(false)}
+              >
                 Глаголы
               </Link>
             </li>
